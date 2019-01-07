@@ -321,7 +321,7 @@ function initialise() {
     var tempHtml = ''
     for (var i = 0; i < 45; i++) {
         tempHtml += '<div class="user" id="' + USERS[i].id +
-        '" draggable="true" ondragstart="dragStart(event)" ondragend="dragEnd(event)">' + USERS[i].first_name+' ' + USERS[i].last_name + '</div>'
+        '" draggable="true" ondragstart="dragStart(event)" ondragend="dragEnd()">' + USERS[i].first_name+' ' + USERS[i].last_name + '</div>'
     }
     document.getElementById('user-list').innerHTML = tempHtml
 
@@ -355,7 +355,7 @@ function dragStart(e) {
 }
 
 // On Drag End
-function dragEnd(e) {
+function dragEnd() {
   document.getElementById('dropable_'+suggestedCell).style.backgroundColor = '#ffffff'
 }
 
