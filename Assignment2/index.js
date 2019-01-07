@@ -321,7 +321,7 @@ function initialise() {
     var tempHtml = ''
     for (var i = 0; i < 45; i++) {
         tempHtml += '<div class="user" id="' + USERS[i].id +
-        '" draggable="true" ondragstart="dragStart(event)">' + USERS[i].first_name+' ' + USERS[i].last_name + '</div>'
+        '" draggable="true" ondragstart="dragStart(event)" ondragend="dragEnd(event)">' + USERS[i].first_name+' ' + USERS[i].last_name + '</div>'
     }
     document.getElementById('user-list').innerHTML = tempHtml
 
@@ -354,6 +354,11 @@ function dragStart(e) {
     element.style.backgroundColor = 'yellowgreen'
 }
 
+// On Drag End
+function dragEnd(e) {
+  document.getElementById('dropable_'+suggestedCell).style.backgroundColor = '#ffffff'
+}
+
 // On Drop
 function drop(e) {
     if(!e.target.innerHTML) {
@@ -364,7 +369,6 @@ function drop(e) {
         alert('This cell alredy contains an user!')
     }
     e.target.style.backgroundColor = '#ffffff'
-    document.getElementById('dropable_'+suggestedCell).style.backgroundColor = '#ffffff'
 }
 
 // On Dragged over dropable cell
@@ -378,7 +382,7 @@ function dragOver(e) {
 // On Drag Leaves dropable cell
 function dragLeave(e) {
     e.target.style.backgroundColor = '#ffffff'
-    // document.getElementById('dropable_'+suggestedCell).style.backgroundColor = '#ffffff'
+    document.getElementById('dropable_'+suggestedCell).style.backgroundColor = 'yellowgreen'
 }
 
 // Remove user from user table and redisplay in users list
