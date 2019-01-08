@@ -1,91 +1,91 @@
 .container {
-    padding: 5px 10px;
-    font-family: sans-serif, serif, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial;
+  padding: 5px 10px;
+  font-family: sans-serif, serif, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial;
 }
 
 .header {
-    width: 100%;
-    text-align: center;
-    font-size: 22px;
-    padding: 8px 0;
-    font-weight: bolder;
-    color: #dddddd;
-    background-color: yellowgreen;
-    border: 2px solid #777777;
-    border-radius: 4px;
+  width: 100%;
+  text-align: center;
+  font-size: 22px;
+  padding: 8px 0;
+  font-weight: bolder;
+  color: #dddddd;
+  background-color: yellowgreen;
+  border: 2px solid #777777;
+  border-radius: 4px;
 }
 
 .content {
-    width: 98%;
-    margin: auto;
-    margin-top: 15px;
-    border: 2px solid #777777;
-    border-radius: 4px;
-    height: 86vh;
-    padding: 10px;
-    display: flex;
+  width: 98%;
+  margin: auto;
+  margin-top: 15px;
+  border: 2px solid #777777;
+  border-radius: 4px;
+  height: 86vh;
+  padding: 10px;
+  display: flex;
 }
 
 .list {
-    flex: 2;
-    border: 2px solid yellowgreen;
-    border-radius: 4px;
-    padding: 3px 5px 8px 5px;
-    margin-right: 25px;
-    height: 84vh;
-    overflow-y: auto;
+  flex: 2;
+  border: 2px solid yellowgreen;
+  border-radius: 4px;
+  padding: 3px 5px 8px 5px;
+  margin-right: 25px;
+  height: 84vh;
+  overflow-y: auto;
 }
 
 .user-content {
-    flex: 6;
-    border: 2px solid yellowgreen;
-    border-radius: 4px;
-    padding: 10px 50px 3px 20px;
-    height: 84vh;
+  flex: 6;
+  border: 2px solid yellowgreen;
+  border-radius: 4px;
+  padding: 10px 50px 3px 20px;
+  height: 84vh;
 }
 
 .user {
-    padding-top: 15px;
-    padding-bottom: 15px;
-    border: 1px solid #222222;
-    border-radius: 4px;
-    text-align: center;
-    font-size: 16px;
-    font-weight: bold;
-    background-color: #aaaaaa;
-    margin-bottom: 15px;
-    cursor: move;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border: 1px solid #222222;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #aaaaaa;
+  margin-bottom: 15px;
+  cursor: move;
 }
 
 .user:hover {
-    border: 2px solid #aaaaaa;
-    background-color: yellowgreen;
+  border: 2px solid #aaaaaa;
+  background-color: yellowgreen;
 }
 
 .user-table {
-    display: flex;
+  display: flex;
 }
 
 .user-cell {
-    flex: 1;
-    width: 33%;
-    height: 50px;
-    border: 2px solid #aaaaaa;
-    border-radius: 4px;
-    margin: 10px;
+  flex: 1;
+  width: 33%;
+  height: 50px;
+  border: 2px solid #aaaaaa;
+  border-radius: 4px;
+  margin: 10px;
 }
 
 .user-cell p {
-    text-align: center;
-    font-size: 18px;
-    font-weight: bold;
-    margin: 14px 0;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 14px 0;
 }
 
 .user-cell i {
-    float: right;
-    margin-right: 5px;
-    font-size: 22px;
-    color: #f70606;
-    cursor: pointer;
+  float: right;
+  margin-right: 5px;
+  font-size: 22px;
+  color: #f70606;
+  cursor: pointer;
 }

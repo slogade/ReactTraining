@@ -1,0 +1,63 @@
+/* APP COMPONENT */
+.app-container {
+  padding: 30px;
+}
+
+.header {
+  background-color: tomato;
+  text-align: center;
+  padding: 30px;
+}
+
+.heading {
+  color: #ffffff;
+  margin: 0;
+}
+
+.todo-input {
+  padding: 10px;
+  font-size: 22px;
+  color: #888888;
+  width: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+.add-button {
+  font-family: serif;
+  font-size: 22px;
+  color: #555555;
+  width: 20%;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+/* LIST COMPONENT */
+.list-container {
+  margin-top: 10px;
+
+}
+
+.list {
+  background-color: #555555;
+  margin-bottom: 5px;
+  padding: 5px 10px;
+  color: #ffffff;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.list .check {
+  display: inline-block;
+  width: 5%;
+  margin-right: 20px;
+}
+
+.list .todo {
+  display: inline-block;
+  width: 85%;
+}
+.list .fa-times {
+  float: right;
+}
