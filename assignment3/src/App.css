@@ -40,12 +40,20 @@
 }
 
 .list {
-  background-color: #555555;
+  /* background-color: #555555; */
   margin-bottom: 5px;
   padding: 5px 10px;
   color: #ffffff;
   font-size: 28px;
   cursor: pointer;
+}
+
+.list:nth-child(odd) {
+  background-color: #777777;
+}
+
+.list:nth-child(even) {
+  background-color: #aaaaaa;
 }
 
 .list .check {
@@ -60,4 +68,27 @@
 }
 .list .fa-times {
   float: right;
+}
+
+/* CSS Methods */
+.css-methods {
+  font-size: 18px;
+  width: 94%;
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+}
+
+.standard-css {
+  background-color: #5555FA;
+  border: 2px solid #2222FF;
+  color: #ffffff;
+  margin: 5px 0;
+}
+
+.moduleCss {
+  background-color: red;
+  border: 2px solid rebeccapurple;
+  color: #ffffff;
+  margin: 5px 0;
 }

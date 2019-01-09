@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
+import styles from './App.module.css'
+import Button from '@material-ui/core/Button'
 
 import { List } from './components/List';
 
@@ -54,6 +56,20 @@ class App extends Component {
 
         <div className="list-container">
           {this.state.toDoList.map(todo => <List toDo={todo} key={todo.id} markDone={(id) => this.markDone(id)} remove={(id) => this.remove(id)}/>)}
+        </div>
+
+        {/* CSS in React Implementation */}
+        <div className="css-methods">
+          <div className="standard-css">Standard CSS</div>
+          <div style={{color: 'red', backgroundColor: 'yellow', border: '2px solid #5a5c88'}}>Inline CSS</div>
+          <div className={styles.moduleCss}>
+            Module CSS
+            <div>Test module inheritance</div>
+          </div>
+          <Button variant="contained" color="primary">css in js</Button>
+          <div style={{color: 'red'}}>
+            <div>Test inheritance</div>
+          </div>
         </div>
       </div>
     );
