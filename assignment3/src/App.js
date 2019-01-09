@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from 'react'
+import './App.css'
 import styles from './App.module.css'
 import Button from '@material-ui/core/Button'
 
-import { List } from './components/List';
+import { List } from './components/List'
 
 class App extends Component {
   constructor() {
@@ -20,11 +20,10 @@ class App extends Component {
         id: new Date().getTime(),
         name: this.state.toDoInput,
         status: 0
-      }]};
+      }], toDoInput: ''}
     }, () => {
-      this.setState({toDoInput: ''})
       localStorage.setItem('todolist', JSON.stringify(this.state.toDoList))
-    });
+    })
   }
 
   markDone(id) {    
@@ -72,8 +71,8 @@ class App extends Component {
           </div>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App

@@ -1,6 +1,7 @@
 import React from 'react'
 
-export function List (props) {
+// Functional / stateless Component
+export const List = (props) => {
   let {toDo, markDone, remove} = props
 
   return (
