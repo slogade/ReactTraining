@@ -66,7 +66,7 @@ class App extends Component {
             Module CSS
             <div>Test module inheritance</div>
           </div>
-          <Button variant="contained" color="primary">css in js</Button>
+          <Button variant="contained" color="primary" style={{color: 'red'}}>css in js</Button>
           <div style={{color: 'red'}}>
             <div>Test inheritance</div>
           </div>
