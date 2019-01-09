@@ -1,9 +1,7 @@
 import React from 'react'
 
 export function List (props) {
-  var toDo = props.toDo
-  var markDone = props.markDone
-  var remove = props.remove
+  let {toDo, markDone, remove} = props
 
   return (
     <div className="list">

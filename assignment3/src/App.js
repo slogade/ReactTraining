@@ -17,7 +17,7 @@ class App extends Component {
   addToDo() {
     this.setState((state) => {
       return {toDoList: [...this.state.toDoList, {
-        id: this.state.toDoList.length,
+        id: new Date().getTime(),
         name: this.state.toDoInput,
         status: 0
       }]};
@@ -28,16 +28,16 @@ class App extends Component {
   }
 
   markDone(id) {    
-    var index = this.state.toDoList.findIndex(todo => todo.id === id)
-    var temp = this.state.toDoList
+    let index = this.state.toDoList.findIndex(todo => todo.id === id)
+    let temp = this.state.toDoList
     temp[index].status = 1
     this.setState({toDoList: temp})
     localStorage.setItem('todolist', JSON.stringify(this.state.toDoList))
   }
 
   remove(id) {
-    var index = this.state.toDoList.findIndex(todo => todo.id === id)
-    var temp = this.state.toDoList
+    let index = this.state.toDoList.findIndex(todo => todo.id === id)
+    let temp = this.state.toDoList
     temp.splice(index, 1)
     this.setState({toDoList: temp})
     localStorage.setItem('todolist', JSON.stringify(this.state.toDoList))
