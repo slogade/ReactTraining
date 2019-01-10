@@ -92,7 +92,7 @@ body {
   margin: 14px 0;
 }
 
-.user-cell i {
+.user-cell span {
   float: right;
   margin-right: 5px;
   font-size: 22px;
