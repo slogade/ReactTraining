@@ -25,11 +25,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@babel/core": "^7.2.2",
-    "@babel/preset-env": "^7.2.3",
-    "@babel/preset-react": "^7.0.0",
     "awesome-typescript-loader": "^5.2.1",
-    "babel-loader": "^8.0.5",
     "css-loader": "^2.1.0",
     "react-svg-loader": "^2.1.0",
     "source-map-loader": "^0.2.4",
