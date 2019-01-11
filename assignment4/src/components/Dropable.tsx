@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-export default class Dropable extends React.Component<{drop: Function, remove: Function}> {
+export default class Dropable extends React.Component<{drop: Function, remove: Function, dragStatus: Boolean}> {
   state: {dropped: any}
   constructor(props: any) {
     super(props)
@@ -46,8 +46,9 @@ export default class Dropable extends React.Component<{drop: Function, remove: F
   }
 
   render() {
+    let {dragStatus} = this.props
     return (
-      <div className="user-cell" onDrop={this.drop} onDragOver={this.dragOver} onDragLeave={this.dragLeave}>
+      <div className="user-cell" onDrop={this.drop} onDragOver={this.dragOver} onDragLeave={this.dragLeave} style={(dragStatus && !this.state.dropped) ? {border: '2px dashed yellowgreen'} : {}}>
         {this.state.dropped ? <p>{this.state.dropped.name} <span onClick={this.remove}>X</span></p> : ''}
       </div>
     )

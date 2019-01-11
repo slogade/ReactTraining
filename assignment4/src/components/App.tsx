@@ -389,6 +389,7 @@ export default class App extends React.Component {
     let users = this.state.users
     users[id - 1].status = 0
     this.setState({users})
+    this.dragEnd()
   }
 
   // On Remove
@@ -409,7 +410,7 @@ export default class App extends React.Component {
     for (var i = 0; i < 9; i++){
       let cell = []
       for (var j = 0; j < 5; j++){
-        cell.push(<Dropable key={j} drop={this.drop} remove={this.remove}/>)
+        cell.push(<Dropable key={j} drop={this.drop} remove={this.remove} dragStatus={this.state.dragStatus}/>)
       }
       rows.push(<div className="user-table" key={i}>{cell}</div>)
     }
