@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import Dragable from './Dragable'
+import { Dragable } from './Dragable'
 import Dropable from './Dropable'
 
 export default class App extends React.Component {
@@ -376,7 +376,6 @@ export default class App extends React.Component {
 
   // On Drag Start
   dragStart = () => {
-    let user
     this.setState({dragStatus: true})
   }
 
@@ -399,7 +398,13 @@ export default class App extends React.Component {
     this.setState({users})
   }
 
-  render() {
+  // Get User
+  getUserElementForList = (user: any) => {
+    return (user.status ? <Dragable user={user} key={user.id} dragStart={this.dragStart} dragEnd={this.dragEnd}/> : '')
+  }
+
+  // Get Users Table
+  getUsersTable = () => {
     let rows = [];
     for (var i = 0; i < 9; i++){
       let cell = []
@@ -408,20 +413,23 @@ export default class App extends React.Component {
       }
       rows.push(<div className="user-table" key={i}>{cell}</div>)
     }
+    return rows
+  }
 
+  render() {
     return (
       <div className="app-container">
-        <div className="header">
-          <div className="heading">User Management</div>
-        </div>
+        <div className="header">User Management</div>
 
         <div className="content">
+          {/* Users List */}
           <div className="list" id="user-list">
-            {this.state.users.map((user: any) => user.status ? <Dragable user={user} key={user.id} dragStart={this.dragStart} dragEnd={this.dragEnd}/> : '')}
+            {this.state.users.map((user: any) => this.getUserElementForList(user))}
           </div>
 
-          <div id="user-table" className="user-content">
-            {rows}
+          {/* Users Table */}
+          <div className="users-table">
+            {this.getUsersTable()}
           </div>
         </div>
       </div>
