@@ -65,6 +65,13 @@ body {
   background-color: #aaaaaa;
   margin-bottom: 15px;
   cursor: move;
+  animation-name: example;
+  animation-duration: 0.5s;
+}
+
+@keyframes example {
+  from {font-size: 0;}
+  to {font-size: 16px;}
 }
 
 .user:hover {
