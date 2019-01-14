@@ -1,4 +1,9 @@
-/* APP COMPONENT */
+body {
+  margin: 0;
+  padding: 30px;
+  font-family: sans-serif;
+}
+
 .app-container {
   padding: 30px;
 }
@@ -11,7 +16,7 @@
 
 .heading {
   color: #ffffff;
-  margin: 0;
+  margin: 0 0 20px 0;
 }
 
 .todo-input {
@@ -33,7 +38,6 @@
   cursor: pointer;
 }
 
-/* LIST COMPONENT */
 .list-container {
   margin-top: 10px;
 }
@@ -43,7 +47,7 @@
   padding: 5px 10px;
   color: #ffffff;
   font-size: 28px;
-  cursor: pointer;
+  list-style-type: none;
 }
 
 .list:nth-child(odd) {
@@ -58,35 +62,4 @@
   display: inline-block;
   width: 5%;
   margin-right: 20px;
-}
-
-.list .todo {
-  display: inline-block;
-  width: 85%;
-}
-.list .fa-times {
-  float: right;
-}
-
-/* CSS Methods */
-.css-methods {
-  font-size: 18px;
-  width: 94%;
-  position: fixed;
-  bottom: 0;
-  text-align: center;
-}
-
-.standard-css {
-  background-color: #5555FA;
-  border: 2px solid #2222FF;
-  color: #ffffff;
-  margin: 5px 0;
-}
-
-.moduleCss {
-  background-color: red;
-  border: 2px solid rebeccapurple;
-  color: #ffffff;
-  margin: 5px 0;
 }
