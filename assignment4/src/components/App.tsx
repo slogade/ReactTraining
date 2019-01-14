@@ -1,15 +1,15 @@
-import * as React from 'react';
+import * as React from 'react'
 
-import { Dragable } from './Dragable';
-import Dropable from './Dropable';
+import { Dragable } from './Dragable'
+import { Dropable } from './Dropable'
 
 export default class App extends React.Component {
-	state: { users: Array<any>; dragStatus: boolean };
+	state: { dragable: Array<any>, dropped: Array<any> }
 	constructor(props: any) {
-		super(props);
+		super(props)
 
 		this.state = {
-			users: [
+			dragable: [
 				{
 					id: 1,
 					first_name: 'Brigida',
@@ -416,62 +416,70 @@ export default class App extends React.Component {
 					status: 1
 				}
 			],
-			dragStatus: false
-		};
+			dropped: new Array(45).fill(null)
+		}
 	}
 
 	// On Drag Start
 	dragStart = () => {
-		this.setState({ dragStatus: true });
-	};
+		let index = this.state.dropped.findIndex(user => user === null)
+		let dropped = this.state.dropped
+		dropped[index] = {suggested: true}
+		this.setState({ dropped })
+	}
 
 	// On Drag End
 	dragEnd = () => {
-		this.setState({ dragStatus: false });
-	};
+		let index = this.state.dropped.findIndex(user => user && user.suggested)
+		let dropped = this.state.dropped
+		dropped[index] = null
+		this.setState({ dropped })
+	}
 
 	// On Drop
-	drop = (id: number) => {
-		let users = this.state.users;
-		users[id - 1].status = 0;
-		this.setState({ users });
-		this.dragEnd();
-	};
+	drop = (id: number, index: number) => {
+		let {dragable, dropped} = this.state
+		dropped[index] = dragable[id - 1]
+		dragable[id - 1] = null
+		this.setState({dragable, dropped})
+		this.dragEnd()
+	}
 
 	// On Remove
-	remove = (id: number) => {
-		let users = this.state.users;
-		users[id - 1].status = 1;
-		this.setState({ users });
-	};
+	remove = (id: number, index: number) => {
+		let {dragable, dropped} = this.state
+		dragable[id - 1] = dropped[index]
+		dropped[index] = null
+		this.setState({dragable, dropped})
+	}
 
 	// Get User
 	getUserElementForList = (user: any) => {
-		return user.status ? (
+		return user ? (
 			<Dragable user={user} key={user.id} dragStart={this.dragStart} dragEnd={this.dragEnd} />
 		) : (
 			''
-		);
-	};
+		)
+	}
 
 	// Get Users Table
 	getUsersTable = () => {
-		let rows = [];
+		let rows = []
 		for (var i = 0; i < 9; i++) {
-			let cell = [];
+			let cell = []
 			for (var j = 0; j < 5; j++) {
 				cell.push(
-					<Dropable key={j} drop={this.drop} remove={this.remove} dragStatus={this.state.dragStatus} />
-				);
+					<Dropable key={j} user={this.state.dropped[(i * 5 + j)]} index={(i * 5 + j)} drop={this.drop} remove={this.remove} />
+				)
 			}
 			rows.push(
 				<div className="user-table" key={i}>
 					{cell}
 				</div>
-			);
+			)
 		}
-		return rows;
-	};
+		return rows
+	}
 
 	render() {
 		return (
@@ -481,13 +489,13 @@ export default class App extends React.Component {
 				<div className="content">
 					{/* Users List */}
 					<div className="list" id="user-list">
-						{this.state.users.map((user: any) => this.getUserElementForList(user))}
+						{this.state.dragable.map((user: any) => this.getUserElementForList(user))}
 					</div>
 
 					{/* Users Table */}
 					<div className="users-table">{this.getUsersTable()}</div>
 				</div>
 			</div>
-		);
+		)
 	}
 }
