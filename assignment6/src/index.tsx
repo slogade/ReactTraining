@@ -5,7 +5,9 @@ import store from './store'
 import { BrowserRouter as Router, Route } from "react-router-dom"
 
 import App from './components/App'
-import AddEditEvent from './components/AddEditEvent'
+import AddEditEvent from './containers/AddEditEvent'
+import EventDetails from './containers/EventDetails'
+
 import './index.css'
 
 ReactDOM.render(
@@ -13,7 +15,8 @@ ReactDOM.render(
     <Router>
       <div>
         <Route path="/" exact component={App} />
-        <Route path="/addEdit" component={AddEditEvent} />
+        <Route path="/addEdit/:data" component={AddEditEvent} />
+        <Route path="/details/:event" component={EventDetails} />
       </div>
     </Router>
   </Provider>,

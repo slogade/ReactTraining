@@ -1,15 +1,15 @@
 import Event from './../models/Event'
 
 export enum ActionTypes {
-  GET_EVENTS = '[events] GET_EVENTS',
+  GET_EVENT = '[events] GET_EVENT',
   ADD_EVENT = '[events] ADD_EVENT',
   EDIT_EVENT = '[events] EDIT_EVENT',
   REMOVE_EVENT = '[events] REMOVE_EVENT'
 }
 
-export interface GetEventsAction {
-  type: ActionTypes.GET_EVENTS,
-  payload: {date: Date}
+export interface GetEventAction {
+  type: ActionTypes.GET_EVENT,
+  payload: {id: number}
 }
 
 export interface AddEventAction {
@@ -27,11 +27,10 @@ export interface RemoveEventAction {
   payload: {eventId: number}
 }
 
-export function getEvents(date: Date): GetEventsAction {
-  console.log(date)
+export function getEvent(id: number): GetEventAction {
   return {
-    type: ActionTypes.GET_EVENTS,
-    payload: { date }
+    type: ActionTypes.GET_EVENT,
+    payload: { id }
   }
 }
 
@@ -49,7 +48,7 @@ export function addEvent(title: string, startTime: string, endTime: string): Add
   }
 }
 
-export function EditEvent(event: Event): EditEventAction {
+export function editEvent(event: Event): EditEventAction {
   return {
     type: ActionTypes.EDIT_EVENT,
     payload: { event }
@@ -63,4 +62,4 @@ export function removeEvent(eventId: number): RemoveEventAction {
   }
 }
 
-export type Action = GetEventsAction | AddEventAction | EditEventAction | RemoveEventAction
+export type Action = GetEventAction | AddEventAction | EditEventAction | RemoveEventAction

@@ -192,11 +192,11 @@ export const initialState: State = {
 
 export function reducer(state: State = initialState, action: Action) {
   switch(action.type) {
-    case ActionTypes.GET_EVENTS: {
-      const { date } = action.payload
-      const events = state.events.filter(event => event.startTime.slice(0, 15) == date.toDateString())
+    case ActionTypes.GET_EVENT: {
+      const { id } = action.payload
+      const event = state.events.filter(event => event.id === id)
 
-      return { events }
+      return { ...state, event }
     }
 
     case ActionTypes.ADD_EVENT: {

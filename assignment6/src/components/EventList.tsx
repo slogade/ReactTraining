@@ -1,10 +1,12 @@
 import * as React from 'react'
 import Event from './../models/Event'
+import { Link } from 'react-router-dom'
 
 interface Props {
   getEvents: Function,
   events: Event[],
-  date: Date
+  date: Date,
+  handleRemove: Function
 }
 
 interface State {
@@ -39,6 +41,17 @@ export default class EventList extends React.Component<Props, State> {
     }
   }
 
+  remove = (id: number, e: any) => {
+    e.stopPropagation()
+
+    const { handleRemove } = this.props
+    let con = confirm('Are you surely want to delete this event?')
+
+    if(con) {
+      handleRemove(id)
+    }
+  }
+
   render() {
     const events = this.props.events.filter(event => event.startTime.slice(0, 15) == this.props.date.toDateString())
 
@@ -46,9 +59,14 @@ export default class EventList extends React.Component<Props, State> {
       (events && events.length) ?
         <div className="event-list">
           {
-            events.map(event => <div key={event.id} className="event" style={this.getStyle(event)}>
-                <span className="title">{event.title}</span>
+            events.map(event =>
+              <div key={event.id} className="event" style={this.getStyle(event)}>
+                <Link to={`/details/${JSON.stringify(event)}`}><span className="title">{event.title}</span></Link>
                 <span className="duration">{event.startTime.slice(16, 21)} TO {event.endTime.slice(16, 21)}</span>
+                <span className="edit-del">
+                  <Link to={`/addEdit/${JSON.stringify(event)}`}>edit</Link>
+                  <button onClick={(e) => this.remove(event.id, e)}>remove</button>
+                </span>
               </div>
             )
           }
@@ -78,7 +96,8 @@ export default class EventList extends React.Component<Props, State> {
             <div className="time-container"><span>10 PM</span><div id="10PM" className="time"></div></div>
             <div className="time-container"><span>11 PM</span><div id="11PM" className="time"></div></div>
           </div>
-        </div> : <div>No Events</div>
+        </div> :
+        <div className="no-events">No Events</div>
     )
   }
 }

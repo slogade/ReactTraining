@@ -1,25 +1,22 @@
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
   entry: {
     app: './src/index.tsx',
     vendor: ['react', 'react-dom', 'react-redux', 'redux', 'reselect', 'react-router-dom', 'moment', 'react-moment']
   },
-
   output: {
     path: __dirname + '/dist',
     publicPath: '/',
     filename: '[name].js'
   },
-
   devServer: {
     contentBase: './dist'
   },
-
   devtool: "source-map",  // Enable sourcemaps for debugging webpack's output.
-
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".json"]   // Add '.ts' and '.tsx' as resolvable extensions.
   },
-
   module: {
     rules: [
       // All files with a '.ts' or '.tsx' extension will be handled by 'awesome-typescript-loader'.
@@ -38,5 +35,13 @@ module.exports = {
         use: ['style-loader','css-loader']
       }
     ]
-  }
+  },
+  devServer: {
+    historyApiFallback: true,
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: 'dist/index.html'
+    })
+  ]
 };

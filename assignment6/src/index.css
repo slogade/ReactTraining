@@ -2,7 +2,8 @@ body {
   font-family: sans-serif, serif, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 .app-container{
-  padding: 0 20px;
+  padding: 0 200px;
+  text-align: center;
 }
 
 .left-pannel {
@@ -28,7 +29,7 @@ a {
 
 .control-bar {
   min-height: 40px;
-  min-width: 920px;
+  width: 920px;
   background-color: #2f68d3;
   border: 2px solid #022b79;
   border-radius: 4px;
@@ -50,12 +51,32 @@ a {
 .event-list {
   position: relative;
   margin-top: 10px;
-  min-width: 920px;
+  width: 900px;
   height: 85vh;
   overflow-y: auto;
   border: 2px solid #022b79;
   border-radius: 4px;
   padding: 5px 20px;
+}
+
+.event {
+  position: absolute;
+  border: 2px solid #2a2a2a;
+  width: 86%;
+  left: 86px;
+  border-radius: 5px;
+}
+
+.event:nth-of-type(even) {
+  color: #2a2a2a;
+  background-color: aquamarine;
+  opacity: 0.8;
+}
+
+.event:nth-of-type(odd) {
+  color: #ffffff;
+  background-color: #022b79;
+  opacity: 0.8;
 }
 
 .time {
@@ -73,27 +94,34 @@ a {
   height: 60px;
 }
 
-.event {
-  position: absolute;
-  border: 2px solid #2a2a2a;
-  width: 87%;
-  left: 65px;
-  border-radius: 5px;
-}
-
-.event:nth-of-type(even) {
-  color: #2a2a2a;
-  background-color: aquamarine;
-  opacity: 0.8;
-}
-
-.event:nth-of-type(odd) {
-  color: #ffffff;
-  background-color: #022b79;
-  opacity: 0.8;
-}
-
 .title {
   font-size: 18px;
   margin-right: 50px;
+}
+
+.no-events {
+  width: 920px;
+  margin-top: 20px;
+  padding: 10px;
+  font-size: 22px;
+  font-weight: bold;
+  border-radius: 5px;
+  border: 2px solid #019401;
+  background-color: #43f02d;
+  color: #0e0b0b;  
+}
+
+/* Add Event Form */
+.heading {
+  text-align: center;
+}
+
+.form-field {
+  margin: 10px 0;
+}
+
+.edit-del {
+  float: right;
+  cursor: pointer;
+  padding: 5px;
 }
