@@ -3,7 +3,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: {
     app: './src/index.tsx',
-    vendor: ['react', 'react-dom', 'react-redux', 'redux', 'reselect', 'react-router-dom', 'moment', 'react-moment']
+    vendor: ['react', 'react-dom', 'react-redux', 'redux', 'reselect', 'react-router-dom', 'moment']
   },
   output: {
     path: __dirname + '/dist',

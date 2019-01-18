@@ -1,27 +1,29 @@
 import * as React from 'react'
 import { FormEvent } from 'react'
-import Moment from 'react-moment'
-var moment = require('moment')
+import * as moment from 'moment'
+
+import Event from './../models/Event';
 
 interface State {
   date: Date,
   id: number,
   title: string,
   startTime: string,
-  endTime: string
+  endTime: string,
+  details: string
 }
 
 export default class AddEditEvent extends React.Component<any, State> {  
   constructor(props: any) {
     super(props)
 
-    const param = this.props.match.params.data
-    let event, date
+    let { date, id } = this.props.match.params
+    let event: Event
 
-    if (param.length > 60) {
-      event = JSON.parse(param)
+    if (date) {
+      date = new Date(date)
     } else {
-      date = new Date(param)
+      event = JSON.parse(id)
     }
 
     this.state = {
@@ -30,6 +32,7 @@ export default class AddEditEvent extends React.Component<any, State> {
       title: event ? event.title : '',
       startTime: event ? event.startTime.slice(16, 21) : '',
       endTime: event ? event.endTime.slice(16, 21) : '',
+      details: event ? (event.details || '') : ''
     }
   }
 
@@ -51,10 +54,11 @@ export default class AddEditEvent extends React.Component<any, State> {
       }
 
       event = {
-        id: this.state.id,
+        id: this.state.id || new Date().getTime(),
         title: this.state.title,
         startTime: new Date(startTime).toString(),
         endTime: new Date(endTime).toString(),
+        details: this.state.details
       }
     } else {
       alert('All fields are mandatory')
@@ -63,7 +67,7 @@ export default class AddEditEvent extends React.Component<any, State> {
     if (this.state.id) {
       handleEdit(event)
     } else {
-      handleAdd(event.title, event.startTime, event.endTime)
+      handleAdd(event)
     }
     window.history.back()
   }
@@ -74,21 +78,29 @@ export default class AddEditEvent extends React.Component<any, State> {
     return (
       <div className="event-form">
         <h1 className="heading">{this.state.id ? 'Edit' : 'Create'} Event</h1>
-        <h2>Date: <Moment date={this.state.date} format="DD MMM, YYYY"/></h2>
-        <form onSubmit={this.handleSubmit}>
+        <h2>Date: {moment(this.state.date).format("DD MMM, YYYY")}</h2>
+        <form onSubmit={this.handleSubmit} className="content">
           <div className="form-field">
             <label htmlFor="title">Title: </label>
             <input type="text" id="title" value={title} onChange={e =>this.setState({title: e.target.value})}/>
           </div>
 
-          <div>
+          <div className="form-field">
             <label htmlFor="from">From: </label>
             <input type="time" id="from" value={this.state.startTime} onChange={e => this.setState({startTime: e.target.value})}/>
 
             <label htmlFor="to">To: </label>
             <input type="time" id="to" value={this.state.endTime} onChange={e => this.setState({endTime: e.target.value})}/>
           </div>
-          <button>Save</button>
+
+          <div className="form-field">
+            <label htmlFor="detail">Details: </label>
+            <input type="textarea" id="detail" value={this.state.details} onChange={e => this.setState({details: e.target.value})}/>
+          </div>
+          <div className="button-container">
+            <button type="button" className="cancle" onClick={() => history.back()}>Cancle</button>
+            <button className="save">Save</button>
+          </div>
         </form>
       </div>
     )

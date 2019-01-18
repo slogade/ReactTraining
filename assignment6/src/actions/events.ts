@@ -34,16 +34,11 @@ export function getEvent(id: number): GetEventAction {
   }
 }
 
-export function addEvent(title: string, startTime: string, endTime: string): AddEventAction {
+export function addEvent(event: Event): AddEventAction {
   return {
     type: ActionTypes.ADD_EVENT,
     payload: {
-      event: {
-        id: new Date().getTime(),
-        title,
-        startTime,
-        endTime
-      }
+      event: {...event}
     }
   }
 }

@@ -1,6 +1,6 @@
 import * as React from 'react'
-import Moment from 'react-moment'
 import { Link } from "react-router-dom"
+import * as moment from 'moment'
 
 interface Props {
   setDate: Function
@@ -41,11 +41,11 @@ export default class ControlBar extends React.Component<Props, State> {
         </div>
         <div className="date">
           <button className="control" onClick={this.decrement}>{'<'}</button>
-          <Moment date={this.state.date} format="DD MMM, YYYY"/>
+          <span>{ moment(this.state.date).format("DD MMM, YYYY") }</span>
           <button className="control" onClick={this.increment}>{'>'}</button>
         </div>
         <div className="right-pannel">
-          <Link to={`/addEdit/${this.state.date.toString()}`}><button className="control">Add</button></Link>
+          <Link to={`/add/${this.state.date.toString()}`}><button className="control">Add</button></Link>
         </div>
       </div>
     )

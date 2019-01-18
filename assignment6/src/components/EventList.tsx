@@ -64,7 +64,7 @@ export default class EventList extends React.Component<Props, State> {
                 <Link to={`/details/${JSON.stringify(event)}`}><span className="title">{event.title}</span></Link>
                 <span className="duration">{event.startTime.slice(16, 21)} TO {event.endTime.slice(16, 21)}</span>
                 <span className="edit-del">
-                  <Link to={`/addEdit/${JSON.stringify(event)}`}>edit</Link>
+                  <Link to={`/edit/${JSON.stringify(event)}`}>edit</Link>
                   <button onClick={(e) => this.remove(event.id, e)}>remove</button>
                 </span>
               </div>

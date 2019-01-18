@@ -19,7 +19,6 @@ body {
 
 a {
   text-decoration: none;
-  color: #ffffff;
 }
 
 .right-pannel {
@@ -69,14 +68,18 @@ a {
 
 .event:nth-of-type(even) {
   color: #2a2a2a;
-  background-color: aquamarine;
+  background-color: #24ff24;
   opacity: 0.8;
 }
 
 .event:nth-of-type(odd) {
   color: #ffffff;
-  background-color: #022b79;
+  background-color: #2525ff;
   opacity: 0.8;
+}
+
+.event:nth-of-type(even):hover, .event:nth-of-type(odd):hover {
+  z-index: 1;
 }
 
 .time {
@@ -99,6 +102,12 @@ a {
   margin-right: 50px;
 }
 
+.title, .duration, .event a {
+  color: #ffffff;
+  margin-right: 8px;
+}
+
+
 .no-events {
   width: 920px;
   margin-top: 20px;
@@ -114,14 +123,86 @@ a {
 /* Add Event Form */
 .heading {
   text-align: center;
+  background-image: linear-gradient(to bottom right, yellow, #56cd23);
+  border: 2px solid #200250;
+  border-radius: 5px;
+  padding: 10px;
+  color: #ffffff;
+}
+
+.content {
+  border: 2px solid #019401;
+  border-radius: 5px;
+  background-image: linear-gradient(to bottom right, yellow, #5656da);
+  margin-top: 5px;
+  padding: 10px;
+  min-height: 400px;
 }
 
 .form-field {
   margin: 10px 0;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.form-field input[type='text'] {
+  width: 300px;
+  height: 20px;
+  border-radius: 4px;
+  padding: 5px
+}
+
+.form-field input[type='textarea'] {
+  width: 250px;
+  height: 50px;
+}
+
+.form-field label {
+  display: inline-block;
+  width: 100px;
+  text-align: right;
+  margin-right: 20px;
 }
 
 .edit-del {
   float: right;
   cursor: pointer;
   padding: 5px;
+}
+
+.row {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.row span {
+  font-size: 20px;
+  font-weight: 200;
+}
+
+.cancle {
+  background-color: #ff4647;
+  font-size: 18px;
+  color: #ffffff;
+  padding: 10px;
+  border-radius: 4px;
+  border: 2px solid red;
+  margin-right: 40px
+}
+
+.save {
+  background-color: #46ff47;
+  font-size: 18px;
+  color: #ffffff;
+  padding: 10px;
+  border: 2px solid green;
+  border-radius: 4px;
+}
+
+button {
+  cursor: pointer;
+}
+
+.button-container {
+  margin: 20px 0 0 120px ;
 }

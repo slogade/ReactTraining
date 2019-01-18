@@ -15,7 +15,8 @@ ReactDOM.render(
     <Router>
       <div>
         <Route path="/" exact component={App} />
-        <Route path="/addEdit/:data" component={AddEditEvent} />
+        <Route path="/add/:date" component={AddEditEvent} />
+        <Route path="/edit/:id" component={AddEditEvent} />
         <Route path="/details/:event" component={EventDetails} />
       </div>
     </Router>
