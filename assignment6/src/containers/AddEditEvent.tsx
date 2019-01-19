@@ -1,8 +1,17 @@
 import { connect } from 'react-redux'
-import AddEditEvent from './../components/AddEditEvent'
-import { addEvent, editEvent } from './../actions/events'
 
-export default connect<any, any, any>(null, {
+import { State } from '../reducers'
+import { addEvent, editEvent, getEvent } from './../actions/events'
+import AddEditEvent from './../components/AddEditEvent'
+
+const mapStateToProps = (state: State) => {
+  return state.selectedEvent
+}
+
+const mapDispatchToProps = {
+  getEvent: getEvent,
   handleAdd: addEvent,
   handleEdit: editEvent
-})(AddEditEvent)
+}
+
+export default connect<any, any, any>(mapStateToProps, mapDispatchToProps)(AddEditEvent)

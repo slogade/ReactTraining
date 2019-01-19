@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import * as moment from 'moment'
 
 interface Props {
-  setDate: Function
+  dateChange: Function
 }
 
 interface State {
@@ -21,16 +21,20 @@ export default class ControlBar extends React.Component<Props, State> {
 
   increment = () => {
     let {date} = this.state
-    this.setState({date: new Date(date.getFullYear(), date.getMonth(), (date.getDate() + 1))}, () => this.props.setDate(this.state.date))
+    this.setState({date: new Date(date.getFullYear(), date.getMonth(), (date.getDate() + 1))}, () => this.props.dateChange(this.state.date.toDateString()))
   }
 
   decrement = () => {
     let {date} = this.state
-    this.setState({date: new Date(date.getFullYear(), date.getMonth(), (date.getDate() - 1))}, () => this.props.setDate(this.state.date))
+    this.setState({date: new Date(date.getFullYear(), date.getMonth(), (date.getDate() - 1))}, () => this.props.dateChange(this.state.date.toDateString()))
   }
 
   today = () => {
-    this.setState({date: new Date()}, () => this.props.setDate(this.state.date))
+    this.setState({date: new Date()}, () => this.props.dateChange(this.state.date.toDateString()))
+  }
+
+  componentDidMount = () => {
+    this.props.dateChange(this.state.date.toDateString())
   }
 
   render() {

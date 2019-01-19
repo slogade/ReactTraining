@@ -6,9 +6,18 @@ export default class EventDetails extends React.Component<any, any> {
     super(props)
   }
 
+  componentDidMount = () => {
+    if (this.props.match.params.id) {
+      this.props.getEvent(this.props.match.params.id)
+    }
+  }
+
   render() {
-    let { event } = this.props.match.params
-    const {title, startTime, endTime, details } = JSON.parse(event)
+    if (this.props.selectedEvent) {
+      var { title, startTime, endTime, details } = this.props.selectedEvent
+    } else {
+      return <div className="no-events">No Event</div>
+    }
 
     return (
       <div className="event-form">

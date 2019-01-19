@@ -1,9 +1,12 @@
 import { connect } from 'react-redux'
-import { State } from './../reducers'
-import { removeEvent } from './../actions/events'
-import EventList from './../components/EventList'
 
-const mapStateToProps = (state: State) => state.events
+import { removeEvent } from './../actions/events'
+import { State } from '../reducers'
+import EventList from '../components/EventList'
+
+const mapStateToProps = (state: State) => {
+  return state.selectedDateEvents
+}
 
 const mapDispatchToProps = {
   handleRemove: removeEvent

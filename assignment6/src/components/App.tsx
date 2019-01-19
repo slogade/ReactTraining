@@ -1,6 +1,6 @@
 import * as React from 'react'
-import ControlBar from './ControlBar'
-import EventList from './../containers/Events'
+import ControlBar from './../containers/ControlBar'
+import EventList from '../containers/EventList'
 
 interface State {
   date: Date

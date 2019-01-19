@@ -3,9 +3,7 @@ import Event from './../models/Event'
 import { Link } from 'react-router-dom'
 
 interface Props {
-  getEvents: Function,
-  events: Event[],
-  date: Date,
+  selectedDateEvents: Event[],
   handleRemove: Function
 }
 
@@ -53,7 +51,7 @@ export default class EventList extends React.Component<Props, State> {
   }
 
   render() {
-    const events = this.props.events.filter(event => event.startTime.slice(0, 15) == this.props.date.toDateString())
+    const events = this.props.selectedDateEvents
 
     return (
       (events && events.length) ?
@@ -61,10 +59,10 @@ export default class EventList extends React.Component<Props, State> {
           {
             events.map(event =>
               <div key={event.id} className="event" style={this.getStyle(event)}>
-                <Link to={`/details/${JSON.stringify(event)}`}><span className="title">{event.title}</span></Link>
+                <Link to={`/details/${event.id}`}><span className="title">{event.title}</span></Link>
                 <span className="duration">{event.startTime.slice(16, 21)} TO {event.endTime.slice(16, 21)}</span>
                 <span className="edit-del">
-                  <Link to={`/edit/${JSON.stringify(event)}`}>edit</Link>
+                  <Link to={`/edit/${event.id}`}>edit</Link>
                   <button onClick={(e) => this.remove(event.id, e)}>remove</button>
                 </span>
               </div>

@@ -1,7 +1,15 @@
 import { connect } from 'react-redux'
+
+import { State } from './../reducers'
 import { getEvent } from './../actions/events'
 import EventDetails from './../components/EventDetails'
 
-export default connect<any, any, any>(null, {
+const mapStateToProps = (state: State) => {
+  return state.selectedEvent
+}
+
+const mapDispatchToProps = {
   getEvent
-})(EventDetails)
+}
+
+export default connect<any, any, any>(mapStateToProps, mapDispatchToProps)(EventDetails)

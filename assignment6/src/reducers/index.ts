@@ -1,14 +1,18 @@
-import * as events from './events'
-import { combineReducers } from 'redux';
+import { combineReducers } from 'redux'
+import * as selectedDateEvents from './selectedDateEvents'
+import * as selectedEvent from './selectedEvent'
 
 export interface State {
-  events: events.State
+  selectedDateEvents: selectedDateEvents.State
+  selectedEvent: selectedEvent.State
 }
 
 export const initialState: State = {
-  events: events.initialState
+  selectedDateEvents: selectedDateEvents.initialState,
+  selectedEvent: selectedEvent.initialState
 }
 
 export const reducer = combineReducers<State> ({
-  events: events.reducer
+  selectedDateEvents: selectedDateEvents.selectedDateEventsReducer,
+  selectedEvent: selectedEvent.selectedEventReducer
 })
