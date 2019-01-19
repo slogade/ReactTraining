@@ -6,12 +6,13 @@ module.exports = {
     vendor: ['react', 'react-dom', 'react-redux', 'redux', 'reselect', 'react-router-dom', 'moment']
   },
   output: {
-    path: __dirname + '/dist',
-    publicPath: './',
+    path: __dirname + './dist',
+    publicPath: '/',
     filename: '[name].js'
   },
   devServer: {
-    contentBase: './dist'
+    contentBase: './dist',
+    historyApiFallback: true
   },
   devtool: "source-map",  // Enable sourcemaps for debugging webpack's output.
   resolve: {
@@ -35,9 +36,6 @@ module.exports = {
         use: ['style-loader','css-loader']
       }
     ]
-  },
-  devServer: {
-    historyApiFallback: true,
   },
   plugins: [
     new HtmlWebpackPlugin({

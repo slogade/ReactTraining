@@ -105,7 +105,9 @@ export default class AddEditEvent extends React.Component<Props, State> {
   render() {
     const { title, startTime, endTime, details } = this.state
 
-    if (title) {
+    if (this.props.match.params.id && !title) {
+      return <div className="no-events">Invalid Event Id</div>
+    } else {
       return (
         <div className="event-form">
           <h1 className="heading">{this.props.match.params.id ? 'Edit' : 'Create'} Event</h1>
@@ -135,8 +137,6 @@ export default class AddEditEvent extends React.Component<Props, State> {
           </form>
         </div>
       )
-    } else {
-      return <div className="no-events">Invalid Event Id</div>
     }
   }
 }
