@@ -53,7 +53,7 @@ export default class ControlBar extends React.Component<Props, State> {
           <DatePicker
             selected={this.state.date}
             onChange={this.change}
-            dateFormat="DD MMM, YYYY"
+            dateFormat="d MMM, YYYY"
           />
           <button className="control" onClick={this.increment}>{'>'}</button>
         </div>
