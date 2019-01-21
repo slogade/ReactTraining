@@ -17,12 +17,19 @@ body {
   color: #ffffff;
 }
 
+.react-datepicker__input-container input {
+  font-size: 22px;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  width: 50%;
+}
+
 a {
   text-decoration: none;
 }
 
 .right-pannel {
-  /* display: inline; */
   float: right;
 }
 

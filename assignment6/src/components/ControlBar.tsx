@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { Link } from "react-router-dom"
-import * as moment from 'moment'
+import DatePicker from 'react-datepicker'
+import "react-datepicker/dist/react-datepicker.css"
 
 interface Props {
   dateChange: Function
@@ -33,6 +34,10 @@ export default class ControlBar extends React.Component<Props, State> {
     this.setState({date: new Date()}, () => this.props.dateChange(this.state.date.toDateString()))
   }
 
+  change = (date: Date) => {
+    this.setState({date}, () => this.props.dateChange(this.state.date.toDateString()))
+  }
+
   componentDidMount = () => {
     this.props.dateChange(this.state.date.toDateString())
   }
@@ -45,7 +50,11 @@ export default class ControlBar extends React.Component<Props, State> {
         </div>
         <div className="date">
           <button className="control" onClick={this.decrement}>{'<'}</button>
-          <span>{ moment(this.state.date).format("DD MMM, YYYY") }</span>
+          <DatePicker
+            selected={this.state.date}
+            onChange={this.change}
+            dateFormat="DD MMM, YYYY"
+          />
           <button className="control" onClick={this.increment}>{'>'}</button>
         </div>
         <div className="right-pannel">
