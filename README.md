@@ -9,3 +9,5 @@
 **Assignment4:** React + webpack + typescript drag-drop project
 
 **Assignment5:** React + Redux + webpack + typescript Todo-List project
+
+**Assignment6:** React + Redux + typescript Calendar events project
