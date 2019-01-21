@@ -174,7 +174,16 @@ a {
 .edit-del {
   float: right;
   cursor: pointer;
-  padding: 5px;
+}
+
+.edit-del button {
+  border: none;
+  background-color: transparent;
+  color: red;
+  font-size: 18px;
+  font-weight: 800;
+  border: 2px solid red;
+  border-radius: 50%;
 }
 
 .row {

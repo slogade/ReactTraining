@@ -63,7 +63,7 @@ export default class EventList extends React.Component<Props, State> {
                 <span className="duration">{event.startTime.slice(16, 21)} TO {event.endTime.slice(16, 21)}</span>
                 <span className="edit-del">
                   <Link to={`/edit/${event.id}`}>edit</Link>
-                  <button onClick={(e) => this.remove(event.id, e)}>remove</button>
+                  <button onClick={(e) => this.remove(event.id, e)}>X</button>
                 </span>
               </div>
             )
