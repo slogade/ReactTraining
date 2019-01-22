@@ -136,6 +136,7 @@ export default class AddEditEvent extends React.Component<Props, State> {
             <label htmlFor="detail">Details: </label>
             <input type="textarea" id="detail" value={details} onChange={e => this.setState({details: e.target.value})}/>
           </div>
+
           <div className="button-container">
             <button type="button" className="cancle" onClick={() => history.back()}>Cancle</button>
             <button className="save">Save</button>
