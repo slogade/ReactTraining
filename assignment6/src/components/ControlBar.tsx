@@ -57,7 +57,9 @@ export default class ControlBar extends React.Component<Props, State> {
           <button className="control" onClick={this.increment}>{'>'}</button>
         </div>
         <div className="right-pannel">
-          <Link to={`/add/${this.state.date.toString()}`}><button className="control">Add</button></Link>
+          <Link to={`/add/${this.state.date.toString()}`}>
+            <button className="control">Add</button>
+          </Link>
         </div>
       </div>
     )

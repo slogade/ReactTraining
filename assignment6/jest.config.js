@@ -58,7 +58,8 @@ module.exports = {
   globals: {
     "ts-jest": {
       "tsConfig": "tsconfig.json"
-    }
+    },
+    "window": true
   },
 
   // An array of directory names to be searched recursively up from the requiring module's location
