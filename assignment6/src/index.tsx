@@ -9,6 +9,7 @@ import AddEditEvent from './containers/AddEditEvent'
 import EventDetails from './containers/EventDetails'
 
 import './index.css'
+import "./../node_modules/react-datepicker/dist/react-datepicker.css"
 
 ReactDOM.render(
   <Provider store={store}>

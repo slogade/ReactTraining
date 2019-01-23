@@ -6,11 +6,7 @@ interface State {
   date: Date
 }
 
-interface Props {
-
-}
-
-export default class App extends React.Component<Props, State> {
+export default class App extends React.Component<any, State> {
   constructor(props: any) {
     super(props)
 

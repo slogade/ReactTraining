@@ -4,7 +4,7 @@ import * as moment from 'moment'
 
 import Event from './../models/Event';
 
-interface Props {
+export interface Props {
   selectedEvent: Event,
   getEvent: Function,
   handleAdd: Function,
@@ -12,7 +12,7 @@ interface Props {
   match: any
 }
 
-interface State {
+export interface State {
   date: Date,
   id: number,
   title: string,
