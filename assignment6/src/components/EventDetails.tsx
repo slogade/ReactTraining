@@ -1,7 +1,14 @@
 import * as React from 'react'
 import * as moment from 'moment'
+import { GetEventAction } from './../actions/events'
+import Event from './../models/Event'
 
-export default class EventDetails extends React.Component<any, any> {  
+interface Props {
+  selectedEvent: Event
+  getEvent: (id: number) => GetEventAction,
+  match: any
+}
+export default class EventDetails extends React.Component<Props, any> {
   constructor(props: any) {
     super(props)
   }

@@ -2,13 +2,16 @@ import * as React from 'react'
 import { FormEvent } from 'react'
 import * as moment from 'moment'
 
-import Event from './../models/Event';
+import { AddEventAction, GetEventAction, EditEventAction } from './../actions/events'
+import Event from './../models/Event'
+
+
 
 export interface Props {
   selectedEvent: Event,
-  getEvent: Function,
-  handleAdd: Function,
-  handleEdit: Function,
+  getEvent: (id: number) => GetEventAction,
+  handleAdd: (event: Event) => AddEventAction,
+  handleEdit: (event: Event) => EditEventAction,
   match: any
 }
 

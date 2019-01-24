@@ -2,8 +2,10 @@ import * as React from 'react'
 import { Link } from "react-router-dom"
 import DatePicker from 'react-datepicker'
 
+import { GetSelectedDateEventsAction } from './../actions/events'
+
 interface Props {
-  dateChange: Function
+  dateChange: (date: String) => GetSelectedDateEventsAction
 }
 
 interface State {
