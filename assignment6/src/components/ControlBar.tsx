@@ -23,12 +23,16 @@ export default class ControlBar extends React.Component<Props, State> {
 
   increment = () => {
     let {date} = this.state
-    this.setState({date: new Date(date.getFullYear(), date.getMonth(), (date.getDate() + 1))}, () => this.props.dateChange(this.state.date.toDateString()))
+    this.setState({date: new Date(date.getFullYear(), date.getMonth(), (date.getDate() + 1))},
+      () => this.props.dateChange(this.state.date.toDateString())
+    )
   }
 
   decrement = () => {
     let {date} = this.state
-    this.setState({date: new Date(date.getFullYear(), date.getMonth(), (date.getDate() - 1))}, () => this.props.dateChange(this.state.date.toDateString()))
+    this.setState({date: new Date(date.getFullYear(), date.getMonth(), (date.getDate() - 1))},
+      () => this.props.dateChange(this.state.date.toDateString())
+    )
   }
 
   today = () => {

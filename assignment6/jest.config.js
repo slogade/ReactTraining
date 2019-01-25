@@ -58,8 +58,7 @@ module.exports = {
   globals: {
     "ts-jest": {
       "tsConfig": "tsconfig.json"
-    },
-    "window": true
+    }
   },
 
   // An array of directory names to be searched recursively up from the requiring module's location
@@ -132,7 +131,7 @@ module.exports = {
   // snapshotSerializers: [],
 
   // The test environment that will be used for testing
-  testEnvironment: "node",
+  testEnvironment: "jsdom",
 
   // Options that will be passed to the testEnvironment
   // testEnvironmentOptions: {},
