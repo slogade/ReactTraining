@@ -12,15 +12,15 @@ import './index.css'
 import "./../node_modules/react-datepicker/dist/react-datepicker.css"
 
 ReactDOM.render(
-  <Provider store={store}>
-    <Router>
-      <div>
-        <Route path="/" exact component={App} />
-        <Route path="/add/:date" component={AddEditEvent} />
-        <Route path="/edit/:id" component={AddEditEvent} />
-        <Route path="/details/:id" component={EventDetails} />
-      </div>
-    </Router>
-  </Provider>,
-  document.getElementById('root') as HTMLElement
+    <Provider store={store}>
+        <Router>
+            <div>
+                <Route path="/" exact component={App} />
+                <Route path="/add/:date" component={AddEditEvent} />
+                <Route path="/edit/:id" component={AddEditEvent} />
+                <Route path="/details/:id" component={EventDetails} />
+            </div>
+        </Router>
+    </Provider>,
+    document.getElementById('root') as HTMLElement
 )
